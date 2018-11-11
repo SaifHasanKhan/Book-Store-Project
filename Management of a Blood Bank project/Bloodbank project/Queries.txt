@@ -1,0 +1,31 @@
+Select sample_no,b_group FROM Blood_Sample,Disease_Recognizer where Blood_Sample.drecog_id=Disease_Recognizer.drecog_id AND drecog_name='Shila' AND status='Yes'
+
+
+select dId,dName ,rID,rName from Donor,Blood_Recipient where db_grp=rb_grp AND Donor.dis_id=Blood_Recipient.dis_id
+
+select dId,dName,rId,rName from Donor ,Blood_Recipient,Registration_Staff where db_grp=rb_grp AND dreg_date=r_regdate AND Donor.rs_id=Blood_Recipient.rs_id AND rs_name='Tania'
+
+select dName,rName dis_name from Donor,Blood_Recipient,District where Donor.db_grp='A+' AND Donor.db_grp=Blood_Recipient.rb_grp AND District.dis_id='10'
+
+select * from Blood_Sample where bm_id= (select bm_id from Blood_Processing_Manager where Sex='Male') 
+
+select Donor.dName,dId,rs_name from Donor,Registration_Staff where Donor.rs_id=Registration_Staff.rs_id and Registration_Staff.rs_id='104'
+
+select b_group, sample_no from Blood_Sample where drecog_id=(select drecog_id from Disease_Recognizer where drecog_name='Dengue')
+
+select dName,Age,dId from Donor ,Registration_Staff WHERE Donor.rs_id=Registration_Staff.rs_id
+UNION
+select dName,Age,dId from Donor where db_grp='B+'
+
+select HName from Hospital where dis_id= (select dis_id from District where dis_name='Dhaka')
+
+select hname,hId,bm_id,dis_id from Hospital where bm_id not in (select bm_id from Blood_Processing_Manager where bm_id='6'
+
+
+
+select dName, Sex, Age from Donor where rs_id= (select rs_id from Registration_Staff where rs_name like 'A%')
+
+
+select * from Donor where dis_id= (select dis_id from District where dis_name like '%R' or dis_name like '%D')
+
+select b_group, sample_no, drecog_id from Blood_Sample where bm_id=( select bm_id from Blood_Processing_Manager where bm_name='Tasnim')
